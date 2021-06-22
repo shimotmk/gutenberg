@@ -106,11 +106,15 @@ export default function PostTermsEdit( {
 
 				{ hasTermLinks &&
 					! isLoadingTermLinks &&
-					termLinks.reduce( ( prev, curr ) => [
-						prev,
-						separator || ' ',
-						curr,
-					] ) }
+					termLinks.reduce( ( prev, curr ) => (
+						<>
+							{ prev }
+							<span className="wp-block-post-terms__sep">
+								{ separator || ' ' }
+							</span>
+							{ curr }
+						</>
+					) ) }
 
 				{ ! isLoadingTermLinks &&
 					! hasTermLinks &&
